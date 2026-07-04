@@ -17,3 +17,20 @@ The third failure was mechanical. Pressing wet waste with enough force to break 
 
 The last failure was heat traveling backward through the metal shaft from the 120°C drying zone, slowly cooking the centrifuge seals and the motor grease. I separated the two zones with a ceramic thermal-barrier coupling, so rotation passes through but heat doesn't, and I moved the heat itself into airflow rather than into the metal.
 What I ended up with matters less to me than how I got there. Each fix came from watching the machine fail in a specific, physical way and asking what was actually happening at that exact point, not from a general idea of what "should" work. If the waste this system processes never becomes leachate, never becomes methane, never needs a truck to haul it away — that's the outcome I was aiming for. But the part of this project I keep coming back to is the habit it built in me: to look at a failure closely enough that the fix becomes obvious.
+
+مشخصات فنی همانطور که قبلا اشاره کردم از کار های نمه تمامو الکی که هیچ نقشه و هدفی دارند خوشم نمیاید پس این نقشه کاملا و تجهیزات ساخت است:
+تجهیزات مورد نیاز:
+esp 32 s3:این قطعه یک میکرو کنترلر هست هم اکنون اون رو دارم این برای تنظیمات و مراحل و کنترل همه چیز استفاده میشود
+یک عدد موتور حرکت اصلی:(5840 Worm Gear Motor)	ولتاژ 12V یا 24V، سرعت 80 RPM، گشتاور 20 تا 25 kg.cm
+موتور دور بالا برای سانتفیوژ:High-Speed Motor)	ولتاژ 12V، سرعت بدون بار 15000 RPM (با بار و افت ولتاژ حدود 1800 RPM)
+المنت سرامیکی:المنت گرمایشی سرامیکی PTC ۱۲ ولت	ولتاژ 12V DC، توان 50W تا 100W، دمای ثابت حداکثر 120°C
+یک منبع تغذیه:یک پاور سوییچینگ 
+دو عدد بلبرینگ 
+
+cable
+اندازه ها![
+Uploading ChatGPT Image Jul 4, 2026, 02_25_34 PM.png…]()
+
+
+
+
