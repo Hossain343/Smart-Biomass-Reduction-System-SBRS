@@ -1,4 +1,5 @@
 The Smart Biomass Reduction System (SBRS) 🚮
+
 I started this project because of a smell. Every summer, the bin under our sink would fill with wet food scraps — watermelon rinds, vegetable peels — and within a day it would start leaking a dark, sour liquid. I later learned this liquid has a name: leachate. It is one of the main sources of groundwater contamination near landfills, and it starts exactly where I was standing, in a kitchen.
 
 Recycling and not letting trash pile up are things almost anyone can manage — small, low-effort habits we already do every day. But drying fruit is different, especially for Iranians, who eat fruit constantly, every single day. Doing it by hand is slow and tedious enough that most people quit after a few tries, simply out of laziness. I know because I did the same thing — it really is that tiring.
