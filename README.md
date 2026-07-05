@@ -38,6 +38,6 @@ MOSFET Driver — IRF520 — Switches the 12V heating element on and off under p
 Blower Fan — A small 12V turbine fan that pushes hot air from the PTC element through the drying tunnel.
 
 Current Sensor — ACS712 — Watches the current draw on the main motor. If something too hard enters the system and the motor strains, I can detect the current spike in software and react — reverse, slow down, or stop — before anything breaks.
-
+![SBRS Architecture](./SBRS-anatomy.png)
 
 
