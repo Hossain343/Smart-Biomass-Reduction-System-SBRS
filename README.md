@@ -18,18 +18,26 @@ The third failure was mechanical. Pressing wet waste with enough force to break 
 The last failure was heat traveling backward through the metal shaft from the 120°C drying zone, slowly cooking the centrifuge seals and the motor grease. I separated the two zones with a ceramic thermal-barrier coupling, so rotation passes through but heat doesn't, and I moved the heat itself into airflow rather than into the metal.
 What I ended up with matters less to me than how I got there. Each fix came from watching the machine fail in a specific, physical way and asking what was actually happening at that exact point, not from a general idea of what "should" work. If the waste this system processes never becomes leachate, never becomes methane, never needs a truck to haul it away — that's the outcome I was aiming for. But the part of this project I keep coming back to is the habit it built in me: to look at a failure closely enough that the fix becomes obvious.
 
-مشخصات فنی همانطور که قبلا اشاره کردم از کار های نمه تمامو الکی که هیچ نقشه و هدفی دارند خوشم نمیاید پس این نقشه کاملا و تجهیزات ساخت است:
-تجهیزات مورد نیاز:
-esp 32 s3:این قطعه یک میکرو کنترلر هست هم اکنون اون رو دارم این برای تنظیمات و مراحل و کنترل همه چیز استفاده میشود
-یک عدد موتور حرکت اصلی:(5840 Worm Gear Motor)	ولتاژ 12V یا 24V، سرعت 80 RPM، گشتاور 20 تا 25 kg.cm
-موتور دور بالا برای سانتفیوژ:High-Speed Motor)	ولتاژ 12V، سرعت بدون بار 15000 RPM (با بار و افت ولتاژ حدود 1800 RPM)
-المنت سرامیکی:المنت گرمایشی سرامیکی PTC ۱۲ ولت	ولتاژ 12V DC، توان 50W تا 100W، دمای ثابت حداکثر 120°C
-یک منبع تغذیه:یک پاور سوییچینگ 
-دو عدد بلبرینگ
-درایور موتور اصلی (Motor Driver): مدل IBT-2 (BTS7960) ۴۳ آمپری:موتور زیر فشار امپر میکشد و باعث سوختگی میشود همچنین این اجازه میده موقع گیر کردگی موتور را برایچند ثانیه برعکس بچرخانیمیا تند و کند کنیم
-ماسفت یا رله برای المنت (MOSFET Module): مدل IRF520 MOSFET Driver:برای کنترل المنت 12 ولت
-فن حلزونی (Blower Fan): یک فن ۱۲ ولت توربینی کوچک.
-سنسور جریان (Current Sensor مدل ACS712):برای اینکه درصورت ورود یک جسم خیلی سخت بتوانیم با برنامه نویسی موتور را کنترل کنیم این 
-cable
+what need to?:
+ESP32-S3 — The brain of the system. I already have this one. It handles all the timing, stage sequencing, and overall control logic.
+
+Main Drive Motor — 5840 Worm Gear Motor (12V/24V, 80 RPM, 20–25 kg·cm torque) — Powers the central shaft. I needed high torque at low speed, since crushing and pressing waste takes serious force, not speed.
+
+High-Speed Motor (Centrifuge) — Rated for 15,000 RPM unloaded, but drops to roughly 1,800 RPM once it's under load and voltage sag kicks in. This is what spins the outer cylinder fast enough to separate liquid from the pulp.
+
+12V Ceramic PTC Heating Element (12V DC, 50–100W, self-limiting up to 120°C) — Dries the pulp in the final stage. I chose a ceramic PTC specifically because it's self-regulating — it won't overheat even if airflow is briefly blocked.
+
+Switching Power Supply — Feeds the whole system with stable, clean power.
+
+Two Ball Bearings — Support the shaft from both ends, which is what keeps deflection under control when the shaft is under pressure (see the shaft-bending problem above).
+
+Motor Driver — IBT-2 (BTS7960), 43A — The main motor draws heavy current under load, enough to burn out a weaker driver. This one can handle that load, and it also lets me reverse the motor for a few seconds or adjust its speed on the fly if something jams.
+
+MOSFET Driver — IRF520 — Switches the 12V heating element on and off under program control.
+
+Blower Fan — A small 12V turbine fan that pushes hot air from the PTC element through the drying tunnel.
+
+Current Sensor — ACS712 — Watches the current draw on the main motor. If something too hard enters the system and the motor strains, I can detect the current spike in software and react — reverse, slow down, or stop — before anything breaks.
+
 
 
